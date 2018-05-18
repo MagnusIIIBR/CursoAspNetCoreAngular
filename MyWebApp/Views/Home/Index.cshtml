@@ -1,7 +1,15 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@*@model  List<MyWebApp.Entidades.Produto>*@
+    @{
+        ViewData["Title"] = "Index";
+    }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
+    @foreach (var item in Model)
+    {
+        <text>
+            <div>@item.Id</div>
+
+        </text>
+
+    }
