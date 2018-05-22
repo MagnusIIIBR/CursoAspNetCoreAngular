@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyWebApp.DataAccess;
+using MyWebApp.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,21 @@ namespace MyWebApp.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody]Produto produto)
+        {
+            try
+            {
+                _produtoRepository.Insert(produto);
+                return Created("/api/produto",produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro: {ex.Message}");
+                throw;
             }
         }
 

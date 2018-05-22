@@ -7,5 +7,6 @@ namespace MyWebApp.DataAccess
     {
         List<Produto> List();
         Produto Get(int id);
+        void Insert(Produto produto)
     }
 }
